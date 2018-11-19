@@ -12,11 +12,11 @@ ToBuyController.$inject = ['ShoppingListService'];
 function ToBuyController(ShoppingListService) {
   var ToBuy = this;
   /* Initalise Buy List with 5 entries. Not sure if this is the correct place to do this. do we need to do this in service function */
-  ShoppingListService.addItemtoBuy("cookies", 5);
-  ShoppingListService.addItemtoBuy("chips", 5);
-  ShoppingListService.addItemtoBuy("coffee", 1);
-  ShoppingListService.addItemtoBuy("egg whites", 2);
-  ShoppingListService.addItemtoBuy("water bottle", 10);
+  ShoppingListService.addItemtoBuy("Cookies", 5);
+  ShoppingListService.addItemtoBuy("Chips", 5);
+  ShoppingListService.addItemtoBuy("Coffee", 1);
+  ShoppingListService.addItemtoBuy("Egg Whites", 2);
+  ShoppingListService.addItemtoBuy("Water bottles", 10);
 
 
   ToBuy.itemsBuy = ShoppingListService.getItems();
