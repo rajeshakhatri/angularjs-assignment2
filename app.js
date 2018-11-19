@@ -24,14 +24,14 @@ function ToBuyController(ShoppingListService) {
 
   ToBuy.removeItem = function (itemIndex) {
     ShoppingListService.removeItem(itemIndex);
-    //ToBuy.BuyMessage = ShoppingListService.getBuyMessage();
+    ToBuy.BuyMessage = ShoppingListService.getBuyMessage();
     //AlreadyBought.BoughtMessage = ShoppingListService.getBoughtMessage();
 
     /*  Logic to set the message. Unable to set the message when all entries from Bought List is removed*/
     var llength = ToBuy.itemsBuy.length
     if ( llength > 0 )
       {
-       ToBuy.BuyMessage = " "
+       ToBuy.BuyMessage = "."
      }
     else {
       ToBuy.BuyMessage = "Everything is bought"
@@ -49,15 +49,15 @@ function AlreadyBoughtController(ShoppingListService) {
 
   AlreadyBought.removeItemBought = function (itemIndex) {
     ShoppingListService.removeItemBought(itemIndex);
-    //AlreadyBought.BoughtMessage = ShoppingListService.getBoughtMessage();
+    AlreadyBought.BoughtMessage = ShoppingListService.getBoughtMessage();
     /* Trying to set the message in To Buy List*/
-    ShoppingListService.setBuytMessage(" ")
+    ShoppingListService.setBuytMessage(".")
 
     /*  Logic to set the message. Unable to set the message when all entries from Bought List is removed*/
-    var llength = ToBuy.itemsBuy.length
+    var llength = AlreadyBought.itemsBought.length
     if ( llength > 0 )
       {
-       AlreadyBought.BoughtMessage = " "
+       AlreadyBought.BoughtMessage = "."
      }
     else {
       AlreadyBought.BoughtMessage = "Nothing Brought Yet"
@@ -149,19 +149,19 @@ function ShoppingListService() {
 
       if(  llength > 0)
         {
-            BuyMessage = "not empty"
+            BuyMessage = "."
         }
        else {
-           BuyMessage = "Empty"
+           BuyMessage = "Everything is bought."
        }
 
        // set BoughtMessage based on array length
        if(  llengthBought > 0)
          {
-             BoughtMessage = "not empty"
+             BoughtMessage = "."
          }
         else {
-            BoughtMessage = "Empty"
+            BoughtMessage = "Nothing is Bought"
         }
 
 
