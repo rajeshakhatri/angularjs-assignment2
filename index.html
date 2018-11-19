@@ -44,14 +44,14 @@
     <h2>Already Bought:</h2>
     <div ng-controller='AlreadyBoughtController as AlreadyBought'>
 
-
       <ol>
         <li ng-repeat="item in AlreadyBought.itemsBought">
           {{ item.quantity }} of {{ item.name }}
-          <button ng-click="AlreadyBought.removeItemBought($index);">Remove Item</button>
+          <!--<button ng-click="AlreadyBought.removeItemBought($index);">Remove Item</button>-->
         </li>
       </ol>
-        <div class="emptyMessage">{{ AlreadyBought.BoughtMessage }}.</div>
+        <!--<div class="emptyMessage">{{ AlreadyBought.BoughtMessage }}.</div>-->
+         <div ng-if="!AlreadyBought.itemsBought.length>0" class="error">{{AlreadyBought.BoughtMessage}}</div>
       <!--<div ng-hide="!AlreadyBought.BoughtMessage" class="error">Error: {{AlreadyBought.BoughtMessage}}</div>-->
     </div>
   </body>

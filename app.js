@@ -24,7 +24,7 @@ function ToBuyController(ShoppingListService) {
 
   ToBuy.removeItem = function (itemIndex) {
     ShoppingListService.removeItem(itemIndex);
-    ToBuy.BuyMessage = ShoppingListService.getBuyMessage();
+    //ToBuy.BuyMessage = ShoppingListService.getBuyMessage();
     //AlreadyBought.BoughtMessage = ShoppingListService.getBoughtMessage();
 
     /*  Logic to set the message. Unable to set the message when all entries from Bought List is removed*/
@@ -46,22 +46,36 @@ function AlreadyBoughtController(ShoppingListService) {
   var AlreadyBought = this;
   AlreadyBought.itemsBought = ShoppingListService.getItemsBought();
   //AlreadyBought.BoughtMessage = "test"
+  AlreadyBought.BoughtMessage = "Nothing Brought Yet"
+
+  // /*  Logic to set the message. Unable to set the message when all entries from Bought List is removed*/
+  // var llength = AlreadyBought.itemsBought.length
+  // console.log( " bought length " + llength);
+  // if ( llength > 0 )
+  //   {
+  //    AlreadyBought.BoughtMessage = "."
+  //  }
+  // else {
+  //   AlreadyBought.BoughtMessage = "Nothing Brought Yet"
+  // }
+
 
   AlreadyBought.removeItemBought = function (itemIndex) {
     ShoppingListService.removeItemBought(itemIndex);
-    AlreadyBought.BoughtMessage = ShoppingListService.getBoughtMessage();
+    //AlreadyBought.BoughtMessage = ShoppingListService.getBoughtMessage();
     /* Trying to set the message in To Buy List*/
-    ShoppingListService.setBuytMessage(".")
+    //ShoppingListService.setBuytMessage(".")
 
     /*  Logic to set the message. Unable to set the message when all entries from Bought List is removed*/
-    var llength = AlreadyBought.itemsBought.length
-    if ( llength > 0 )
-      {
-       AlreadyBought.BoughtMessage = "."
-     }
-    else {
-      AlreadyBought.BoughtMessage = "Nothing Brought Yet"
-    }
+    // var llength = AlreadyBought.itemsBought.length
+    // console.log( " bought length " + llength);
+    // if ( llength > 0 )
+    //   {
+    //    AlreadyBought.BoughtMessage = "."
+    //  }
+    // else {
+    //   AlreadyBought.BoughtMessage = "Nothing Brought Yet"
+    // }
 
 
   };
@@ -79,9 +93,9 @@ function ShoppingListService() {
   // List of shopping items Bought
   var itemsBought = [];
 
-  // Variable to set message in Bought List to Nothing bought yet
+  // Variable to set message in Bought List to Nothing bought yet. Not used
   var BoughtMessage = "";
-  // Variable to set message in Bought List to Everythingn is Bought
+  // Variable to set message in Bought List to Everythingn is Bought. Not used
   var BuyMessage = "";
 
   /* Method to add initial items to "To Buy: List */
@@ -112,25 +126,25 @@ function ShoppingListService() {
       itemsBuy.push(item);
       itemsBought.splice(itemIdex, 1);
 
-      var llength =  itemsBuy.length
-      var llengthBought =  itemsBought.length
-
-      if(  llength > 0)
-        {
-            BuyMessage = "not empty"
-        }
-       else {
-           BuyMessage = "Empty"
-       }
-
-       // set BoughtMessage based on array length
-       if(  llengthBought > 0)
-         {
-             BoughtMessage = "not empty"
-         }
-        else {
-            BoughtMessage = "Empty"
-        }
+      // var llength =  itemsBuy.length
+      // var llengthBought =  itemsBought.length
+      //
+      // if(  llength > 0)
+      //   {
+      //       BuyMessage = "not empty"
+      //   }
+      //  else {
+      //      BuyMessage = "Empty"
+      //  }
+      //
+      //  // set BoughtMessage based on array length
+      //  if(  llengthBought > 0)
+      //    {
+      //        BoughtMessage = "not empty"
+      //    }
+      //   else {
+      //       BoughtMessage = "Empty"
+      //   }
 
       };
 
@@ -143,26 +157,26 @@ function ShoppingListService() {
       itemsBought.push(itembought);
       itemsBuy.splice(itemIdex, 1);
 
-      var llength =  itemsBuy.length
-      var llengthBought =  itemsBought.length
+      // var llength =  itemsBuy.length
+      // var llengthBought =  itemsBought.length
       //console.log(" array length " + llength + "-" + llengthBought);
 
-      if(  llength > 0)
-        {
-            BuyMessage = "."
-        }
-       else {
-           BuyMessage = "Everything is bought."
-       }
-
-       // set BoughtMessage based on array length
-       if(  llengthBought > 0)
-         {
-             BoughtMessage = "."
-         }
-        else {
-            BoughtMessage = "Nothing is Bought"
-        }
+      // if(  llength > 0)
+      //   {
+      //       BuyMessage = "."
+      //   }
+      //  else {
+      //      BuyMessage = "Everything is bought."
+      //  }
+      //
+      //  // set BoughtMessage based on array length
+      //  if(  llengthBought > 0)
+      //    {
+      //        BoughtMessage = "."
+      //    }
+      //   else {
+      //       BoughtMessage = "Nothing is Bought"
+      //   }
 
 
   };
@@ -177,17 +191,17 @@ function ShoppingListService() {
     return itemsBought;
   };
 
- /* Method to return Bought Message, This was to set the message to Nothing Bought Yet*/
+ /* Method to return Bought Message, This was to set the message to Nothing Bought Yet NOT USED*/
   service.getBoughtMessage = function () {
     return BoughtMessage;
   };
 
-/* Method to return Bought Message, This was to set the message to Everything is bought*/
+/* Method to return Bought Message, This was to set the message to Everything is bought NOT USED*/
   service.getBuyMessage = function () {
     return BuyMessage;
   };
 
-  /* Method to set Buy message from Bought Controller */
+  /* Method to set Buy message from Bought Controller NOT USED*/
   service.setBuytMessage = function (buyMessage) {
      BuyMessage = buyMessage;
   };
